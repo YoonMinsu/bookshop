@@ -5,20 +5,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
-@NoArgsConstructor
 public class BoardListResponse {
 
-    private Long id;
+    private final Long id;
 
-    private String title;
+    private final String title;
 
-    private String writer;
+    private final String writer;
+
+    private final LocalDateTime createdTime;
 
     @Builder
     public BoardListResponse(Board entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.writer = entity.getWriter();
+        this.createdTime = entity.getCreatedDate();
     }
 }
