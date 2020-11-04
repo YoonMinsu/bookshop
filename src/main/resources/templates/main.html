@@ -1,42 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragments/header :: header">
+    <head th:replace="fragments/head :: head">
     </head>
     <body>
-        <header th:replace="fragments/bodyheader :: bodyheader"></header>
-        <!-- main Body -->
-        <main role="main" class="container">
-            <div class="starter-template">
-                <h1>메인 페이지</h1>
-                <p class="lead">개발 중입니다.</p>
-            </div>
-        </main>
+        <header th:replace="fragments/header :: header"></header>
 
         <main role="main" class="container">
-            <div class="starter-template">
-                <h1>메인 페이지</h1>
-                <p class="lead">개발 중입니다.</p>
-            </div>
+            <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+            <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
         </main>
-
-        <main role="main" class="container">
-            <div class="starter-template">
-                <h1>메인 페이지</h1>
-                <p class="lead">개발 중입니다.</p>
-            </div>
-        </main>
-
-        <main role="main" class="container">
-            <div class="starter-template">
-                <h1>메인 페이지</h1>
-                <p class="lead">개발 중입니다.</p>
-            </div>
-        </main>
-
-        <!-- main Body END -->
 
         <div th:replace="fragments/footer :: footer"></div>
-        <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+        <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
     </body>
