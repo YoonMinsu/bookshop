@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- header -->
+<header class="header" th:fragment="bodyheader">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand">SKU</a>
+            <div class="ui-widget">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/login">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/register">회원가입</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron text-center mb-0">
+        <h1 class="text-primary">Book Shop</h1>
+        <p class="text-danger">공사 중입니다.</p>
+    </div>
+    <nav class="container navbar navbar-expand-md navbar-light" style="background-color: #d4edda">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown mr-3">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">미정</a>
+                        <a class="dropdown-item" href="#">미정</a>
+                        <a class="dropdown-item" href="#">미정</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/list">신청 게시판</a>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="/my/info">내 정보</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/my/cart">장바구니</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--header end-->
