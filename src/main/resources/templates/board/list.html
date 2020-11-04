@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+
+<div class="container">
+    <h1 class="text-primary">게시판 리스트</h1>
+</div>
+<div class="container pb-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" width="10%">글 번호</th>
+            <th scope="col" width="50%">제목</th>
+            <th scope="col" width="20%">작성자</th>
+            <th scope="col" width="20%">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="boards : ${board}">
+            <td th:text="${boards.id}">number</td>
+            <td>
+                <a th:href="@{'/board/' + ${boards.id}}">
+                    <span th:text="${boards.title}">title</span>
+                </a>
+            </td>
+            <td th:text="${boards.writer}">writer</td>
+            <td th:text="${#temporals.format(boards.createdTime,'yyyy-MM-dd')}">createdDate</td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" role="button" href="/board/post">글 등록</a>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
