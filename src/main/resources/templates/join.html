@@ -6,12 +6,12 @@
 <body>
 <div class="container">
     <h1 class="text-center font-weight-bolder mb-5" style="font-size: 4.5rem;">WELCOME</h1>
-    <form role="form" class="form-group m-auto" style="max-width: 500px;">
+    <form role="form" th:action="@{join.html}" method="post" class="form-group m-auto" style="max-width: 500px;">
         <div class="input-group">
-            <!-- 이메일 -->
+            <!-- 아이디 -->
             <div class="form-group">
-                <label class="font-weight-bold">이메일</label>
-                <input type="text" class="form-control" id="email" name="email" size="100" style="height: 3rem;"/>
+                <label class="font-weight-bold">아이디</label>
+                <input type="text" class="form-control" id="id" name="id" size="100" style="height: 3rem;"/>
             </div>
 
             <!-- 비밀번호 -->
@@ -42,6 +42,12 @@
             <div class="form-group">
                 <label class="font-weight-bold">휴대전화</label>
                 <input type="password" class="form-control" id="phoneNumber" name="phoneNumber" size="100" style="height: 3rem;"/>
+            </div>
+
+            <!-- 이메일 -->
+            <div class="form-group">
+                <label class="font-weight-bold">이메일</label>
+                <input type="text" class="form-control" id="email" name="email" size="100" style="height: 3rem;"/>
             </div>
 
             <!-- 사용자 주소 -->
