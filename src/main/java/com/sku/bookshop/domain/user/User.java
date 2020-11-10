@@ -3,7 +3,7 @@ package com.sku.bookshop.domain.user;
 import com.sku.bookshop.common.Address;
 import com.sku.bookshop.common.BaseEntity;
 
-import com.sku.bookshop.web.dto.UserInfoDto;
+
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 public class User extends BaseEntity {
@@ -19,9 +19,7 @@ public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_num")
-    //회원 번호
     private Long num;
-
 
     private String id;
 
@@ -43,7 +41,6 @@ public class User extends BaseEntity {
     @Embedded
     private Address address;
 
-
     private String type;
 
     @Builder
@@ -56,13 +53,5 @@ public class User extends BaseEntity {
         this.birth = birth;
         this.address = address;
         this.type = type;
-    }
-
-    public UserInfoDto infoDto(User entity) {
-        return UserInfoDto.builder()
-                .id(entity.getId())
-                .password(entity.getPassword())
-                .email(entity.getEmail())
-                .build();
     }
 }

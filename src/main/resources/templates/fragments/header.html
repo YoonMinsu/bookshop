@@ -1,13 +1,17 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <header th:fragment="header">
     <!-- Fixed navbar -->
     <div class="container">
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link" href="/login">로그인</a>
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
+                <a class="nav-link" sec:authorize="hasRole('ROLE_MEMBER')" href="#">내정보</a>
+<!--                <a class="nav-link" href="/login">로그인</a>-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/join">회원가입</a>
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/join}">회원가입</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+<!--                <a class="nav-link" href="/join">회원가입</a>-->
             </li>
         </ul>
     </div>

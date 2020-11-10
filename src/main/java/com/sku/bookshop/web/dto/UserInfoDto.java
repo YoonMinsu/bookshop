@@ -1,14 +1,18 @@
 package com.sku.bookshop.web.dto;
 
+import com.sku.bookshop.common.Address;
+import com.sku.bookshop.domain.user.Role;
 import com.sku.bookshop.domain.user.User;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import javax.validation.constraints.NotBlank;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class UserInfoDto {
 
+    @NotBlank(message = "아이디를 입력해주세요")
     private String id;
 
     private String password;
@@ -29,8 +33,6 @@ public class UserInfoDto {
 
     private String detailAddress;
 
-    private String type;
-
     public User toEntity() {
         return User.builder()
                 .id(id)
@@ -39,22 +41,21 @@ public class UserInfoDto {
                 .email(email)
                 .phoneNumber(phoneNumber)
                 .birth(birth)
+                .address(setUserAddress())
+                .type(Role.USER.getRole())
                 .build();
     }
-    @Builder
-    public UserInfoDto(String id, String password, String email) {
-        this.id = id;
-        this.password = password;
-        this.email = email;
+
+    public Address setUserAddress() {
+        return Address.builder()
+                .zipcode(zipCode)
+                .roadNameAddress(roadNameAddress)
+                .localNameAddress(localNameAddress)
+                .detailAddress(detailAddress)
+                .build();
     }
 
-    // 비밀번호 암호화
-    public void encryptionPassword(String password) {
+    public void setPasswordEncryption(String password) {
         this.password = password;
-    }
-
-    // 권한 설정
-    public void setAuthorise(String key) {
-        this.type = key;
     }
 }

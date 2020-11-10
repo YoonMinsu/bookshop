@@ -13,7 +13,8 @@
             </svg>
         </div>
     </div>
-    <form class="form-group m-auto" style="max-width: 460px;">
+    <form th:action="@{/login}" method="post" class="form-group m-auto" style="max-width: 460px;">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="email">
@@ -24,7 +25,7 @@
                     </svg>
                 </span>
             </div>
-            <input type="text" class="form-control" placeholder="이메일(아이디)" style="height: 3.5rem;">
+            <input type="text" class="form-control" name="username" placeholder="이메일(아이디)" style="height: 3.5rem;">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -35,7 +36,7 @@
                     </svg>
                 </span>
             </div>
-            <input type="password" class="form-control" placeholder="비밀번호" style="height: 3.5rem;">
+            <input type="password" name="password" class="form-control" placeholder="비밀번호" style="height: 3.5rem;">
         </div>
         <div class="list-group-item ">
             <div class="list-inline-item">
