@@ -8,7 +8,7 @@
     <div class="subTitle">
         <h3 class="text-center font-weight-bolder mb-5" style="font-size: 4.5rem;">WELCOME</h3>
     </div>
-    <form role="form" th:action="@{/join}" method="post" class="form-group m-auto" style="max-width: 500px;">
+    <form role="form" th:action="@{/join}" th:object="${memberRequestDto}" method="post" class="form-group m-auto" style="max-width: 500px;">
         <div class="input-group">
             <!-- 아이디 -->
             <div class="form-group mt-3">
@@ -17,7 +17,7 @@
                     <label class="font-weight-bold text-danger">*</label>
                 </div>
                 <div class="form-inline float-left mr-3">
-                    <input type="text" t class="form-control" id="userid" name="userid" size="50"  style="height: 3rem;"/>
+                    <input type="text" class="form-control" th:field="*{userid}" size="50"  style="height: 3rem;"/>
                 </div>
                 <div class="form-inline">
                     <input type="button" class="form-control btn-sm btn-info" onclick="" value="중복확인" style="height: 3rem;">
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label class="font-weight-bold">비밀번호</label>
                 <label class="font-weight-bold text-danger">*</label>
-                <input type="password" class="form-control" id="password" name="password" size="100" style="height: 3rem;"/>
+                <input type="password" class="form-control" th:field="*{password}" id="password" name="password" size="100" style="height: 3rem;"/>
             </div>
 
             <!-- 비밀번호 확인 -->
@@ -42,48 +42,48 @@
             <div class="form-group">
                 <label class="font-weight-bold">이름</label>
                 <label class="font-weight-bold text-danger">*</label>
-                <input type="text" class="form-control" id="name" name="name" size="100" style="height: 3rem;"/>
+                <input type="text" class="form-control" th:field="*{name}" id="name" name="name" size="100" style="height: 3rem;"/>
             </div>
 
             <!-- 생년월일 -->
             <div class="form-group">
                 <label class="font-weight-bold">생년월일</label>
                 <label class="font-weight-bold text-danger">*</label>
-                <input type="text" class="form-control" id="birth" name="birth" size="100" style="height: 3rem;"/>
+                <input type="text" class="form-control" th:field="*{birth}" id="birth" name="birth" size="100" placeholder="주민번호 앞 6자리 ex) 000000" style="height: 3rem;"/>
             </div>
 
             <!-- 핸드폰 번호 -->
             <div class="form-group">
                 <label class="font-weight-bold">휴대전화</label>
                 <label class="font-weight-bold text-danger">*</label>
-                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" size="100" style="height: 3rem;"/>
+                <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" name="phoneNumber" placeholder="000-0000-0000" size="100" style="height: 3rem;"/>
             </div>
 
             <!-- 이메일 -->
             <div class="form-group">
                 <label class="font-weight-bold">이메일</label>
                 <label class="font-weight-bold text-danger">*</label>
-                <input type="text" class="form-control" id="email" name="email" size="100" style="height: 3rem;"/>
+                <input type="text" class="form-control" th:field="*{email}" id="email" name="email" size="100" placeholder="example@example.com" style="height: 3rem;"/>
             </div>
 
             <div class="form-group mt-3">
                 <div>
-                    <label class="font-weight-bold">사용자 주소</label>
+                    <label class="font-weight-bolder">사용자 주소</label>
                 </div>
                 <div class="form-inline float-left mr-3">
-                    <input type="text" class="form-control form-inline" id="sample4_postcode" placeholder="우편번호" style="height: 3.5rem;">
+                    <input type="text" class="form-control form-inline"  th:field="*{zipcode}" id="sample4_postcode" placeholder="우편번호" style="height: 3.5rem;">
                 </div>
                 <div class="form-inline">
                     <input type="button" class="form-control btn-sm btn-info" onclick="daumAddressAPI()" value="우편번호 찾기" style="height: 3.5rem;">
                 </div>
                 <div class="mt-2">
-                    <input type="text" class="form-control" id="sample4_roadAddress" placeholder="도로명 주소" size="100" style="height: 3rem;">
+                    <input type="text" class="form-control" th:field="*{roadAddress}" id="sample4_roadAddress" placeholder="도로명 주소" size="100" style="height: 3rem;">
                 </div>
                 <div class="mt-2">
-                    <input type="text" class="form-control" id="sample4_jibunAddress" placeholder="지번 주소" size="100" style="height: 3rem;">
+                    <input type="text" class="form-control" th:field="*{jibunAddress}" id="sample4_jibunAddress" placeholder="지번 주소" size="100" style="height: 3rem;">
                 </div>
                 <div class="mt-2">
-                    <input type="text" class="form-control" id="sample4_detailAddress" placeholder="상세 주소" size="100" style="height: 3rem;">
+                    <input type="text" class="form-control" th:field="*{detailAddress}" id="sample4_detailAddress" placeholder="상세 주소" size="100" style="height: 3rem;">
                 </div>
             </div>
         </div>
