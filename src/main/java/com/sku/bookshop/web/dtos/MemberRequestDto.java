@@ -10,7 +10,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+
 
 @NoArgsConstructor
 @Getter
@@ -26,6 +26,7 @@ public class MemberRequestDto {
     @NotBlank
     private String name;
 
+    @Email
     @NotBlank
     private String email;
 
