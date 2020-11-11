@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head">
 </head>
-<!-- 회원가입.html에 사용된 이미지는 언제나 교체 가능성이 있습니다 -->
 <body>
 <div class="container">
     <div class="subTitle">
@@ -17,11 +16,12 @@
                     <label class="font-weight-bold text-danger">*</label>
                 </div>
                 <div class="form-inline float-left mr-3">
-                    <input type="text" class="form-control" th:field="*{userid}" size="50"  style="height: 3rem;"/>
+                    <input type="text" class="form-control" th:field="*{userid}" size="50" style="height: 3rem;"/>
                 </div>
                 <div class="form-inline">
                     <input type="button" class="form-control btn-sm btn-info" onclick="" value="중복확인" style="height: 3rem;">
                 </div>
+                <small class="text-danger" th:if="${#fields.hasErrors('userid')}" th:erroes="*{userid}">필수항목 입니다. </small>
             </div>
 
             <!-- 비밀번호 -->
@@ -29,6 +29,7 @@
                 <label class="font-weight-bold">비밀번호</label>
                 <label class="font-weight-bold text-danger">*</label>
                 <input type="password" class="form-control" th:field="*{password}" id="password" name="password" size="100" style="height: 3rem;"/>
+                <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:erroes="*{password}">필수항목 입니다. </small>
             </div>
 
             <!-- 비밀번호 확인 -->
@@ -43,13 +44,15 @@
                 <label class="font-weight-bold">이름</label>
                 <label class="font-weight-bold text-danger">*</label>
                 <input type="text" class="form-control" th:field="*{name}" id="name" name="name" size="100" style="height: 3rem;"/>
+                <small class="text-danger" th:if="${#fields.hasErrors('name')}" th:erroes="*{name}">필수항목 입니다. </small>
             </div>
 
             <!-- 생년월일 -->
             <div class="form-group">
                 <label class="font-weight-bold">생년월일</label>
                 <label class="font-weight-bold text-danger">*</label>
-                <input type="text" class="form-control" th:field="*{birth}" id="birth" name="birth" size="100" placeholder="주민번호 앞 6자리 ex) 000000" style="height: 3rem;"/>
+                <input type="text" class="form-control" th:field="*{birth}" id="birth" name="birth" size="100" placeholder="ex) 20201225" style="height: 3rem;"/>
+                <small class="text-danger" th:if="${#fields.hasErrors('birth')}" th:erroes="*{birth}">필수항목 입니다. </small>
             </div>
 
             <!-- 핸드폰 번호 -->
@@ -57,6 +60,7 @@
                 <label class="font-weight-bold">휴대전화</label>
                 <label class="font-weight-bold text-danger">*</label>
                 <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber" name="phoneNumber" placeholder="000-0000-0000" size="100" style="height: 3rem;"/>
+                <small class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:erroes="*{phoneNumber}">필수항목 입니다. </small>
             </div>
 
             <!-- 이메일 -->
@@ -64,6 +68,7 @@
                 <label class="font-weight-bold">이메일</label>
                 <label class="font-weight-bold text-danger">*</label>
                 <input type="text" class="form-control" th:field="*{email}" id="email" name="email" size="100" placeholder="example@example.com" style="height: 3rem;"/>
+                <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:erroes="*{email}">이메일 형식에 맞지 않습니다. </small>
             </div>
 
             <div class="form-group mt-3">
