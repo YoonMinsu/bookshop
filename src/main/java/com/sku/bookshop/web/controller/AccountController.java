@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 
 @RequiredArgsConstructor
 @Controller
@@ -34,7 +36,12 @@ public class AccountController {
     }
 
     @PostMapping("/join")
-    public String joinForm(MemberRequestDto requestDto) {
+    public String joinForm(@Valid MemberRequestDto requestDto, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "join";
+        }
+
         memberService.saveMember(requestDto);
         return "redirect:/login";
     }
