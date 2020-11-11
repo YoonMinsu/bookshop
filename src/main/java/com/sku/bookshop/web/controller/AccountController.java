@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -18,11 +17,6 @@ import javax.validation.Valid;
 public class AccountController {
 
     private final MemberService memberService;
-
-    @GetMapping("/")
-    public String mainPage() {
-        return "main";
-    }
 
     @GetMapping("/login")
     public String loginForm() {
@@ -42,7 +36,7 @@ public class AccountController {
             return "join";
         }
 
-        memberService.saveMember(requestDto);
+        Long memberNum = memberService.saveMember(requestDto);
         return "redirect:/login";
     }
 }
