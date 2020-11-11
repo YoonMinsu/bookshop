@@ -7,26 +7,24 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Address {
+@Getter
+@Embeddable
+public class  Address {
 
-    private String zipcode;
+    private String zipCode;
 
-    private String roadNameAddress;
+    private String roadAddress;
 
-    private String localNameAddress;
+    private String jibunAddress;
 
     private String detailAddress;
 
     @Builder
-    public Address(String zipcode, String roadNameAddress, String localNameAddress, String detailAddress) {
-        this.zipcode = zipcode;
-        this.roadNameAddress = roadNameAddress;
-        this.localNameAddress = localNameAddress;
+    public Address(String zipCode, String roadAddress, String jibunAddress, String detailAddress) {
+        this.zipCode = zipCode;
+        this.roadAddress = roadAddress;
+        this.jibunAddress = jibunAddress;
         this.detailAddress = detailAddress;
     }
 }
-
-
