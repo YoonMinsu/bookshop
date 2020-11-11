@@ -10,7 +10,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/join}">회원가입</a>
-                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+                <form method="post" th:action="@{/logout}">
+                    <input sec:authorize="hasRole('ROLE_MEMBER')" type="submit" value="로그아웃">
+                </form>
 <!--                <a class="nav-link" href="/join">회원가입</a>-->
             </li>
         </ul>
