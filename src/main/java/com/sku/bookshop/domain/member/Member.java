@@ -2,6 +2,7 @@ package com.sku.bookshop.domain.member;
 
 import com.sku.bookshop.common.Address;
 import com.sku.bookshop.common.BaseEntity;
+import com.sku.bookshop.domain.board.Board;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,8 +12,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -58,6 +61,9 @@ public class Member extends BaseEntity implements UserDetails {
         this.address = address;
         this.role = role;
     }
+
+    @OneToMany(mappedBy = "member" ,cascade = CascadeType.ALL)
+    private final List<Board> boardList = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

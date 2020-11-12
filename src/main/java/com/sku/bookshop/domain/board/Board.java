@@ -33,4 +33,8 @@ public class Board extends BaseEntity {
         this.writer = writer;
         this.content = content;
     }
+
+    public void setPostMember(Member member) {
+        this.member = member;
+    }
 }
