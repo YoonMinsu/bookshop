@@ -19,15 +19,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="boards : ${board}">
-            <td th:text="${boards.id}">number</td>
+        <tr th:each="boards : ${list}">
+            <td th:text="${boards.num}">number</td>
             <td>
-                <a th:href="@{'/board/' + ${boards.id}}">
+                <a th:href="@{'/board/' + ${boards.num}}">
                     <span th:text="${boards.title}">title</span>
                 </a>
             </td>
             <td th:text="${boards.writer}">writer</td>
-            <td th:text="${#temporals.format(boards.createdTime,'yyyy-MM-dd')}">createdDate</td>
+            <td th:text="${#temporals.format(boards.createDateTime,'yyyy-MM-dd')}">createdDate</td>
         </tr>
         </tbody>
     </table>
