@@ -1,4 +1,4 @@
-package com.sku.bookshop.web.dtos;
+package com.sku.bookshop.web.dtos.member;
 
 import com.sku.bookshop.common.Address;
 import com.sku.bookshop.domain.member.Member;
