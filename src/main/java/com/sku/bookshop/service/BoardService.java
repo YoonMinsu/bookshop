@@ -3,6 +3,7 @@ package com.sku.bookshop.service;
 import com.sku.bookshop.domain.board.Board;
 import com.sku.bookshop.domain.board.BoardRepository;
 import com.sku.bookshop.domain.member.Member;
+import com.sku.bookshop.web.dtos.board.PostDetailResponseDto;
 import com.sku.bookshop.web.dtos.board.PostListResponseDto;
 import com.sku.bookshop.web.dtos.board.PostRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -37,6 +39,13 @@ public class BoardService {
         return boardRepository.findAllDesc().stream()
                 .map(PostListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public PostDetailResponseDto findDetailPost(Long num) {
+        Board board = boardRepository.getOne(num);
+
+        return new PostDetailResponseDto(board);
     }
 
 }
