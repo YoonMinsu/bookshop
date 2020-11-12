@@ -1,10 +1,8 @@
 package com.sku.bookshop.web.controller;
 
-import com.sku.bookshop.domain.member.Member;
 import com.sku.bookshop.service.MemberService;
-import com.sku.bookshop.web.dtos.MemberRequestDto;
+import com.sku.bookshop.web.dtos.member.MemberRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
