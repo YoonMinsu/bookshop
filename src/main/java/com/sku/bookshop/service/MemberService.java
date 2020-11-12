@@ -2,7 +2,7 @@ package com.sku.bookshop.service;
 
 import com.sku.bookshop.domain.member.Member;
 import com.sku.bookshop.domain.member.MemberRepository;
-import com.sku.bookshop.web.dtos.MemberRequestDto;
+import com.sku.bookshop.web.dtos.member.MemberRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
