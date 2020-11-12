@@ -5,10 +5,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-@Transactional(readOnly = true)
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
+    @Transactional(readOnly = true)
     Member findByUserid(String userid);
 
+    @Transactional(readOnly = true)
     Member findByEmail(String email);
 }
